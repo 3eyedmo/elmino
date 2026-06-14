@@ -100,6 +100,7 @@ pip install -r .\requirements\development.txt
 ```
 
 ```bash
+cd .\core\
 python manage.py migrate
 ```
 
