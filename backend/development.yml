@@ -1,0 +1,21 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: compose/development/Dockerfile
+
+    container_name: olympiad_backend_dev
+
+    environment:
+      DJANGO_SETTINGS_MODULE: configs.settings.development
+      PYTHONUNBUFFERED: 1
+
+    working_dir: /app/core
+
+    volumes:
+      - ./core:/app/core
+
+    ports:
+      - "8000:8000"
+
+    command: /app/compose/development/start

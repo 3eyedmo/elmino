@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+python manage.py migrate
+python manage.py create_admin_user
+python manage.py seed_olympiad
+gunicorn configs.wsgi:application \
+    --bind 0.0.0.0:8000 \
+    --reload \
+    --workers 2
